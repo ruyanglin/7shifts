@@ -107,4 +107,16 @@ public class StringCalculatorTest {
         String input = "//*&&,*!**!*\n10*!**!*21\n*&&13*!**!*1\n";
         assertEquals(stringCalc.add(input), 45);
     }
+
+    @Test
+    public void UsingNumbersAsDelimiterTest() throws Exception {
+        String input = "//1,432\n1394243233431314";
+        assertEquals(stringCalc.add(input), 7);
+    }
+
+    @Test
+    public void WholeStringMatchDelimiterTest() throws Exception {
+        String input = "//abdf23049u234#*94729^#&\nabdf23049u234#*94729^#&abdf23049u234#*94729^#&";
+        assertEquals(stringCalc.add(input), 0);
+    }
 }
