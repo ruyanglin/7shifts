@@ -1,5 +1,3 @@
-package com.company;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -42,7 +40,7 @@ public class StringCalculator {
         }
 
         if (str.charAt(0) == str.charAt(1) && str.charAt(0) == '/') {
-            String[] formatedString = str.substring(2).split("\n", 2);
+            String[] formatedString = str.substring(2).split("\\n", 2);
             str = formatedString[1];
             delimiters = Arrays.asList(formatedString[0].split(NORMALIZED_DELIMITER));
 
@@ -68,7 +66,7 @@ public class StringCalculator {
     }
 
     private String clean(String str) {
-        return str.replaceAll("\n", "");
+        return str.replace("\n", "");
     }
 
     private boolean isAcceptable(int number) {

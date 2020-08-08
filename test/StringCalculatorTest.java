@@ -1,4 +1,3 @@
-import com.company.StringCalculator;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -27,7 +26,7 @@ public class StringCalculatorTest {
 
     @Test
     public void BasicWithNewLineTest() throws Exception {
-        String input = "1,\n2,4\n";
+        String input = "\n1,\n2,4\n";
         assertEquals(stringCalc.add(input), 7);
     }
 
@@ -94,6 +93,12 @@ public class StringCalculatorTest {
     @Test
     public void BonusThreeMultipleSimilarDelimiterTest() throws Exception {
         String input = "//*,**\n10*21\n**13\n";
+        assertEquals(stringCalc.add(input), 44);
+    }
+
+    @Test
+    public void BonusThreeMultipleSimilarDelimiterReversedTest() throws Exception {
+        String input = "//**,*\n10*21\n**13\n";
         assertEquals(stringCalc.add(input), 44);
     }
 
