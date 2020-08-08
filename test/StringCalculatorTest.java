@@ -38,7 +38,7 @@ public class StringCalculatorTest {
 
     @Test
     public void CustomDelimiterWithNewlineTest() throws Exception {
-        String input = "//;\n4;2\n;\n\n9";
+        String input = "//;\n\n4;2\n;\n\n9";
         assertEquals(stringCalc.add(input), 15);
     }
 
@@ -51,6 +51,12 @@ public class StringCalculatorTest {
     @Test(expected = Exception.class)
     public void NegativeNumberExceptionTest() throws Exception {
         String input = "-1,2,3";
+        stringCalc.add(input);
+    }
+
+    @Test(expected = Exception.class)
+    public void AllNegativeNumberExceptionTest() throws Exception {
+        String input = "-1,-2,-3";
         stringCalc.add(input);
     }
 
@@ -118,5 +124,17 @@ public class StringCalculatorTest {
     public void WholeStringMatchDelimiterTest() throws Exception {
         String input = "//abdf23049u234#*94729^#&\nabdf23049u234#*94729^#&abdf23049u234#*94729^#&";
         assertEquals(stringCalc.add(input), 0);
+    }
+
+    @Test
+    public void SpaceDelimiterTest() throws Exception {
+        String input = "// \n1 2 3";
+        assertEquals(stringCalc.add(input), 6);
+    }
+
+    @Test
+    public void MultipleSpaceDelimiterTest() throws Exception {
+        String input = "// ,   \n1    2 3   4";
+        assertEquals(stringCalc.add(input), 10);
     }
 }
