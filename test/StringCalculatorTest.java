@@ -1,10 +1,15 @@
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.assertEquals;
 
 public class StringCalculatorTest {
 
     StringCalculator stringCalc = new StringCalculator();
+
+    @Rule
+    public ExpectedException expectedEx = ExpectedException.none();
 
     @Test
     public void BasicTest() throws Exception {
@@ -48,14 +53,20 @@ public class StringCalculatorTest {
         assertEquals(stringCalc.add(input), 15);
     }
 
-    @Test(expected = Exception.class)
+    @Test
     public void NegativeNumberExceptionTest() throws Exception {
+        expectedEx.expect(Exception.class);
+        expectedEx.expectMessage("Negatives not allowed: [-1]");
+
         String input = "-1,2,3";
         stringCalc.add(input);
     }
 
-    @Test(expected = Exception.class)
+    @Test
     public void AllNegativeNumberExceptionTest() throws Exception {
+        expectedEx.expect(Exception.class);
+        expectedEx.expectMessage("Negatives not allowed: [-1, -2, -3]");
+
         String input = "-1,-2,-3";
         stringCalc.add(input);
     }
@@ -135,6 +146,18 @@ public class StringCalculatorTest {
     @Test
     public void MultipleSpaceDelimiterTest() throws Exception {
         String input = "// ,   \n1    2 3   4";
+        assertEquals(stringCalc.add(input), 10);
+    }
+
+    @Test
+    public void FWDSlashDelimiterTest() throws Exception {
+        String input = "///\n1/2/3/4";
+        assertEquals(stringCalc.add(input), 10);
+    }
+
+    @Test
+    public void DoubleFWDSlashDelimiterTest() throws Exception {
+        String input = "////\n\n1//2//3//4";
         assertEquals(stringCalc.add(input), 10);
     }
 }

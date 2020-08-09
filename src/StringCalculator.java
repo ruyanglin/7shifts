@@ -8,13 +8,14 @@ public class StringCalculator {
     private final int LOWER_BOUND = 0;
     private final int UPPER_BOUND = 1000;
     private final String DELIMITER = ",";
+    private final String NEGATIVES_EXCEPTION_MSG = "Negatives not allowed: ";
 
 
     public int add(String str) throws Exception {
         List<Integer> numbers = parseInput(str);
 
         if (!negatives.isEmpty()) {
-            throw new Exception("Negatives not allowed: " + negatives);
+            throw new Exception(NEGATIVES_EXCEPTION_MSG + negatives);
         }
 
         return numbers.stream().reduce(0, Integer::sum);
