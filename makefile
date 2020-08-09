@@ -1,8 +1,9 @@
+
 compile:
-	javac src/*.java
+	@javac src/*.java
 
 run: compile
-	java -classpath src Main "${INPUT}"
+	@java -classpath src Main "${INPUT}"
 
 clean:
-	rm src/*.class
+	@rm src/*.class
