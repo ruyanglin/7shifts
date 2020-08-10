@@ -5,17 +5,32 @@ the string calculator adds all the numbers together.
 All features and bonus features is implemented.
 
 ## How to Run
-`INPUT="1,2,3,4" make run`
 
-Passes `"1,2,3,4"` to the calculator and returns `10` which is the sum.
+1. In the root directory `7shifts/`, run
+    
+    ```shell script
+    $ make compile
+   ```
+ Which compiles the java files to the class files
+ 
+ 2. `cd src`
+ 
+ 3. Run
+ ```shell script
+$ java Main "1,2,3"
+```
 
-> Since we are passing in command-line arguments, escape characters are treated differently on the command-line compared
-> to Java. For example '\n' is treated as a single escape character in Java, whereas, `\\n` is the command-line equivalent.
+Which sends the arguement "1,2,3" to the String Calculator
+
+> If using the newline character (`\n`) or special characters (`<([{\^-=$!|]})?*+.>`), you will need to escape it first
+>
+>For example, `java Main "//\?\#\\n1\?\#2\?\#2"` splits on the delimiter `?#`.
 
 
 ## Cleanup 
+1. `cd ..`
 
-`make clean`
+2. `make clean`
 
 Removes all the compiled Java classes
 

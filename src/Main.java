@@ -1,3 +1,5 @@
+import java.util.regex.Pattern;
+
 public class Main {
 
     public static void main(String[] args) throws Exception {
@@ -9,6 +11,5 @@ public class Main {
         // When input is from the command line need to escape \n
         String input = args[0].replace("\\n", "\n");
         System.out.println(stringCalculator.add(input));
-
     }
 }
