@@ -2,7 +2,7 @@
 Given a string formatted like `//[delimiter]\n[delimiter separated numbers]` or `[delimiter separated numbers]`,
 the string calculator adds all the numbers together.
 
-All features and bonus features is implemented.
+All features and bonus features are implemented.
 
 ## How to Run
 
@@ -11,7 +11,7 @@ All features and bonus features is implemented.
     ```shell script
     $ make compile
    ```
- Which compiles the java files to the class files
+ Which compiles the Java files to the class files
  
  2. `cd src`
  
@@ -20,7 +20,7 @@ All features and bonus features is implemented.
 $ java Main "1,2,3"
 ```
 
-Which sends the arguement "1,2,3" to the String Calculator
+Which sends the argument "1,2,3" to the String Calculator
 
 > If using the newline character (`\n`) or special characters (`<([{\^-=$!|]})?*+.>`), you will need to escape it first
 >
@@ -28,9 +28,9 @@ Which sends the arguement "1,2,3" to the String Calculator
 
 
 ## Cleanup 
-1. `cd ..`
+1. Go back to the root directory `cd ..`
 
-2. `make clean`
+2. `$ make clean`
 
 Removes all the compiled Java classes
 
